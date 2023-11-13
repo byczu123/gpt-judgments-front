@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/gpt-judgments-front/static/css/main.6599ba27.css",
-    "main.js": "/gpt-judgments-front/static/js/main.db3359d3.js",
+    "main.js": "/gpt-judgments-front/static/js/main.241fe4cf.js",
     "static/js/787.8218982f.chunk.js": "/gpt-judgments-front/static/js/787.8218982f.chunk.js",
     "index.html": "/gpt-judgments-front/index.html",
     "main.6599ba27.css.map": "/gpt-judgments-front/static/css/main.6599ba27.css.map",
-    "main.db3359d3.js.map": "/gpt-judgments-front/static/js/main.db3359d3.js.map",
+    "main.241fe4cf.js.map": "/gpt-judgments-front/static/js/main.241fe4cf.js.map",
     "787.8218982f.chunk.js.map": "/gpt-judgments-front/static/js/787.8218982f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6599ba27.css",
-    "static/js/main.db3359d3.js"
+    "static/js/main.241fe4cf.js"
   ]
 }
