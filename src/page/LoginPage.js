@@ -33,7 +33,7 @@ const LoginPage = () => {
           })
           .then(data => {
               localStorage.setItem('token', data.access_token)
-              navigate("/query")
+              navigate("/gpt-judgments-front/query")
           })
           .catch(error => {
             console.error('Fetch Error:', error);
