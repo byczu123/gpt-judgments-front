@@ -12,11 +12,11 @@ function App() {
         <Router >
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
-                <Route path="/register" element={<RegisterPage/>}/>
-                <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/query" element={<QueryPage/>}/>
-                <Route path="/justification" element={<JustificationPage/>}/>
-                <Route path="/rate" element={<RatePage/>}/>
+                <Route path={`${process.env.PUBLIC_URL}/register`} element={<RegisterPage/>}/>
+                <Route path={`${process.env.PUBLIC_URL}/login`} element={<LoginPage/>}/>
+                <Route path={`${process.env.PUBLIC_URL}/query`} element={<QueryPage/>}/>
+                <Route path={`${process.env.PUBLIC_URL}/justification`} element={<JustificationPage/>}/>
+                <Route path={`${process.env.PUBLIC_URL}/rate`} element={<RatePage/>}/>
             </Routes>
         </Router>
     );
