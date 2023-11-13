@@ -2,7 +2,7 @@ import './App.css';
 import './page/LoginPage'
 import LoginPage from "./page/LoginPage";
 import RegisterPage from "./page/RegisterPage";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import QueryPage from "./page/QueryPage";
 import JustificationPage from "./page/JustificationPage";
 import MainPage from "./page/MainPage";
