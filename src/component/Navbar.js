@@ -9,12 +9,11 @@ const Navbar = () => {
         navigate('/login');
     };
     return (
-        <div>
+        <div className="full-width">
             <div className="menu">
                 <ul>
                     <li><Link className="link-active" to="">Home</Link></li>
-                    <li><Link className="link" to="">About</Link></li>
-                    <li><Link className="link" to="">Contact</Link></li>
+                    {isLoggedIn && <li><Link to={"/query"} className="link">Query</Link></li>}
                     {!isLoggedIn && <li><Link className="link" to="/login">Login</Link></li>}
                     {isLoggedIn && <li><Link to={"/"} className="link" onClick={handleLogout}>Logout</Link></li>}
                 </ul>
@@ -23,8 +22,7 @@ const Navbar = () => {
                 <label className="logo">Generated Justifications App</label>
                 <ul>
                     <li><Link className="link-active" to="/">Home</Link></li>
-                    <li><Link className="link" to="/about">About</Link></li>
-                    <li><Link className="link" to="/contact">Contact</Link></li>
+                    {isLoggedIn && <li><Link to={"/query"} className="link">Query</Link></li>}
                     {!isLoggedIn && <li><Link className="link" to="/login">Login</Link></li>}
                     {isLoggedIn && <li><Link to={"/"} className="link" onClick={handleLogout}>Logout</Link></li>}
                 </ul>

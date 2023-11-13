@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 nav{
+    display: flex;
     background: #0082e6;
     height: 80px;
     width: 100%;
@@ -18,6 +19,7 @@ label.logo{
     font-weight: bold;
 }
 nav ul{
+    margin-left: auto;
     float: right;
     margin-right: 20px;
 }
@@ -36,6 +38,9 @@ nav ul li .link,.link-active{
 .link:hover,.link-active{
     background: #1b9bff;
     transition: .5s;
+}
+.full-width{
+    width: 100%;
 }
 .menu{
     display: none;

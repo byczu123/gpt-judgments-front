@@ -1,10 +1,14 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import '../style/query_page.css';
 import Navbar from "../component/Navbar";
 import {useNavigate} from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function QueryPage() {
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
     justification_to_generate: '',
     legal_base: '',
@@ -23,9 +27,15 @@ function QueryPage() {
     setFormData({ ...formData, [name]: value });
   };
   const submitRequest = () => {
-      const jsonData = JSON.stringify(formData);
+      if (!formData.justification_to_generate.trim()) {
+        toast.error("Please enter a valid topic for justification.",{
+            position: "bottom-center",
+            toastId: 'invalid-justification-toast'});
+        return;
+    }
 
-    // Send JSON data to the server
+      const jsonData = JSON.stringify(formData);
+      setLoading(true)
     fetch('http://localhost:5000/gpt/fetch', {
       method: 'POST',
       headers: {
@@ -33,9 +43,11 @@ function QueryPage() {
           'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
       body: jsonData,
-    })
+    }
+    )
       .then((response) => {
           if (response.ok) {
+              setLoading(false)
               return response.json();
           } else {
               throw new Error("HTTP ERROR: " + response.status)
@@ -52,11 +64,14 @@ function QueryPage() {
     return (
         <div className="default">
                         <Navbar/>
-
-        <div className="wrapper">
-            <div className="input-data">
-                <form>
-                    <input
+            {
+                loading?
+                   <ClipLoader className="circle" color={'#D0021B'} loading={loading} size={250}/>
+                    :
+            <div className="wrapper">
+                <div className="input-data">
+                    <form>
+                        <input
                         type="text"
                         name="justification_to_generate"
                         placeholder="Enter the topic of justification to generate"
@@ -137,12 +152,14 @@ function QueryPage() {
                         value={formData.judgment_date_to}
                         onChange={handleChange}
                       />
-                    <button type="button" onClick={submitRequest}>
+                    <button type="button" className="query_button" onClick={submitRequest}>
                         Generate justification
                     </button>
                 </form>
             </div>
         </div>
+            }
+            <ToastContainer />
     </div>
     );
 }
