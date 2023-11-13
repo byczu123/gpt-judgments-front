@@ -55,7 +55,7 @@ function QueryPage() {
       })
         .then((data) => {
             console.log(data)
-            navigate('/justification', { state: { justification: data.justification } });
+            navigate('/gpt-judgments-front/justification', { state: { justification: data.justification } });
         })
   };
 

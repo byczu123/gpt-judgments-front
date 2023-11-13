@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useLocation} from "react-router-dom";
 import Navbar from "../component/Navbar";
 import {toast, ToastContainer} from "react-toastify";
+import {navigate} from "use-history";
 
 function JustificationPage() {
   const [justification, setJustification] = useState('');
@@ -62,6 +63,7 @@ function JustificationPage() {
       .then((response) => response.json())
       .then((data) => {
         console.log('Response from server:', data);
+        navigate("/gpt-judgments-front/")
       })
       .catch((error) => {
         console.error('Error:', error);
