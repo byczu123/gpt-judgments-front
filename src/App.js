@@ -11,7 +11,7 @@ function App() {
     return (
         <Router >
             <Routes>
-                <Route path="/" element={<MainPage/>}/>
+                <Route path={`${process.env.PUBLIC_URL}/`} element={<MainPage/>}/>
                 <Route path={`${process.env.PUBLIC_URL}/register`} element={<RegisterPage/>}/>
                 <Route path={`${process.env.PUBLIC_URL}/login`} element={<LoginPage/>}/>
                 <Route path={`${process.env.PUBLIC_URL}/query`} element={<QueryPage/>}/>
