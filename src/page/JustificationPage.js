@@ -8,27 +8,9 @@ function JustificationPage() {
   const [justification, setJustification] = useState('');
   const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState('');
-  const [validationResult, setValidationResult] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/user/validate-token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response from the server
-        console.log(data);
-        setValidationResult(data);
-      })
-      .catch(error => {
-        // Handle errors in the request
-        console.error('Error validating token:', error);
-      });
       setJustification(location.state.justification)
   }, [location.state.justification]);
 
@@ -51,7 +33,6 @@ function JustificationPage() {
       rating: rating,
       feedback: feedback,
     };
-    console.log(data)
     fetch('http://localhost:5000/gpt/rate', {
       method: 'POST',
       headers: {
@@ -60,10 +41,14 @@ function JustificationPage() {
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Response from server:', data);
-        navigate("/gpt-judgments-front/")
+      .then((response) => {
+          if (response.ok) {
+              navigate('/gpt-judgments-front/');
+          } else {
+              toast.error("Token is invalid.",{
+                position: "bottom-center",
+                toastId: 'invalid-token-toast'});
+          }
       })
       .catch((error) => {
         console.error('Error:', error);

@@ -1,9 +1,11 @@
 import {Link, useNavigate} from "react-router-dom";
 import '../style/navbar.css'
+import {useEffect} from "react";
 
 const Navbar = () => {
     const navigate = useNavigate();
     const isLoggedIn = localStorage.getItem('token') !== null;
+
     const handleLogout = () => {
         localStorage.removeItem('token');
         navigate('/gpt-judgments-front/login');

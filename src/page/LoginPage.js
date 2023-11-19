@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import 'react-toastify/dist/ReactToastify.min.css';
 import '../style/main_page.css';
-import {Link} from "react-router-dom";
 import Navbar from "../component/Navbar";
 import {useNavigate} from "react-router-dom";
 import {toast, ToastContainer} from "react-toastify"
@@ -14,7 +13,6 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      console.log()
     fetch('http://127.0.0.1:5000/user/token', {
       method: 'POST',
       headers: {
@@ -32,6 +30,7 @@ const LoginPage = () => {
             }
           })
           .then(data => {
+              console.log(data)
               localStorage.setItem('token', data.access_token)
               navigate("/gpt-judgments-front/query")
           })
@@ -63,7 +62,6 @@ const LoginPage = () => {
                     <span></span>
                 </div>
                 <input type="submit" onClick={handleSubmit} value="Login"/>
-                <div className="signup_link">Not a member? <Link to="/register">Sign up</Link></div>
             </form>
         </div>
             <ToastContainer
