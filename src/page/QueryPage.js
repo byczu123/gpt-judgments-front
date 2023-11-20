@@ -3,7 +3,7 @@ import '../style/query_page.css';
 import Navbar from "../component/Navbar";
 import {useNavigate} from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader"
-import {toast, ToastContainer} from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 function QueryPage() {
@@ -35,7 +35,8 @@ function QueryPage() {
     }
 
       const jsonData = JSON.stringify(formData);
-    fetch('http://localhost:5000/gpt/query', {
+      setLoading(true)
+    fetch('http://localhost:5000/gpt/fetch', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -46,15 +47,16 @@ function QueryPage() {
     )
       .then((response) => {
           if (response.ok) {
-              setLoading(true)
-              const data = response.json()
-              navigate('/gpt-judgments-front/justification', { state: { justification: data.justification } });
+              setLoading(false)
+              return response.json();
           } else {
-              toast.error("Token is invalid.",{
-                position: "bottom-center",
-                toastId: 'invalid-token-toast'});
+              throw new Error("HTTP ERROR: " + response.status)
           }
       })
+        .then((data) => {
+            console.log(data)
+            navigate('/justification', { state: { justification: data.justification } });
+        })
   };
 
 
