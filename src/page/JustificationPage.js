@@ -48,7 +48,7 @@ function JustificationPage() {
       rating: star,
       feedback: feedback,
     };
-    fetch('/gpt/rate', {
+    fetch('http://16.171.225.22:5000/gpt/rate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
