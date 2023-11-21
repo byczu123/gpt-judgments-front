@@ -40,7 +40,7 @@ function QueryPage() {
     }
       const jsonData = JSON.stringify(formData);
       setLoading(true)
-    fetch('16.171.225.22/gpt/query', {
+    fetch('https://16.171.225.22:5000/gpt/query', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

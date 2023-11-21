@@ -18,7 +18,7 @@ function JustificationPage() {
   const location = useLocation();
 
   useEffect(() => {
-    fetch('16.171.225.22/user/validate-token', {
+    fetch('https://16.171.225.22:5000/user/validate-token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
