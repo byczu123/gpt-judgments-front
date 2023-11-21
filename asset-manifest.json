@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/gpt-judgments-front/static/css/main.6599ba27.css",
-    "main.js": "/gpt-judgments-front/static/js/main.241fe4cf.js",
+    "main.css": "/gpt-judgments-front/static/css/main.53fd6944.css",
+    "main.js": "/gpt-judgments-front/static/js/main.81ff095d.js",
     "static/js/787.8218982f.chunk.js": "/gpt-judgments-front/static/js/787.8218982f.chunk.js",
+    "static/media/technology-human-touch-background-modern-remake-creation-adam.jpg": "/gpt-judgments-front/static/media/technology-human-touch-background-modern-remake-creation-adam.a1930f17d8c1cc75ab22.jpg",
     "index.html": "/gpt-judgments-front/index.html",
-    "main.6599ba27.css.map": "/gpt-judgments-front/static/css/main.6599ba27.css.map",
-    "main.241fe4cf.js.map": "/gpt-judgments-front/static/js/main.241fe4cf.js.map",
+    "main.53fd6944.css.map": "/gpt-judgments-front/static/css/main.53fd6944.css.map",
+    "main.81ff095d.js.map": "/gpt-judgments-front/static/js/main.81ff095d.js.map",
     "787.8218982f.chunk.js.map": "/gpt-judgments-front/static/js/787.8218982f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6599ba27.css",
-    "static/js/main.241fe4cf.js"
+    "static/css/main.53fd6944.css",
+    "static/js/main.81ff095d.js"
   ]
 }
