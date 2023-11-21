@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import QueryPage from "./page/QueryPage";
 import JustificationPage from "./page/JustificationPage";
 import MainPage from "./page/MainPage";
+
 function App() {
     return (
         <Router>

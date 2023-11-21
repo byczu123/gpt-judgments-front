@@ -33,6 +33,7 @@ nav ul li .link,.link-active{
     font-size: 17px;
     padding: 7px 13px;
     border-radius: 3px;
+    text-decoration: none;
     text-transform: uppercase;
 }
 .link:hover,.link-active{

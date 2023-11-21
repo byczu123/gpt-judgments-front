@@ -13,7 +13,9 @@ body{
   align-items: center;
   height: 100vh;
   flex-direction: column;
+  overflow: scroll;
 }
+
 .default-row{
   display: flex;
   height: 100vh;
@@ -23,6 +25,10 @@ body{
 .center{
   position: fixed;
   max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border-radius: 10px;
+  height: 400px;
   width: 500px;
   top: calc(80px + 20%);
 }
@@ -186,4 +192,27 @@ input[type="submit"]{
   width: 70%;
   height: 15vh;
   box-sizing: border-box;
+}
+.justification-card{
+
+  margin-top: calc(2%);
+  overflow: scroll;
+  height: 700px;
+  min-height: 700px;
+}
+
+.main_card{
+  margin-left: 5%;
+  font-size: 25px;
+  width: 50vw;
+  margin-top: 10%;
+  margin-right: 0;
+}
+.default_main{
+  background-image: url("technology-human-touch-background-modern-remake-creation-adam.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  flex-direction: column;
+  overflow: scroll;
 }

@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://127.0.0.1:5000/user/token', {
+    fetch('16.171.225.22/user/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,14 +23,13 @@ const LoginPage = () => {
             if (response.ok) {
               return response.json();
             } else {
-                toast.error('Invalid credentials', {
+                toast.error('Nieprawidłowe dane.', {
                     position: "bottom-center",
                     toastId: "invalid-credentials-toast"
                     });
             }
           })
           .then(data => {
-              console.log(data)
               localStorage.setItem('token', data.access_token)
               navigate("/gpt-judgments-front/query")
           })
@@ -54,7 +53,7 @@ const LoginPage = () => {
                     <span></span>
                 </div>
                 <div className="txt_field">
-                    <input placeholder="Password"
+                    <input placeholder="Hasło"
                            type="password"
                            id="password"
                            value={password}
