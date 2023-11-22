@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {useLocation} from "react-router-dom";
-import Navbar from "../component/Navbar";
+import {useLocation, useNavigate} from "react-router-dom";
 import {toast, ToastContainer} from "react-toastify";
 import {Card} from "react-bootstrap";
 import ReactStars from 'react-rating-star-with-type'
@@ -10,12 +9,17 @@ import 'react-toastify/dist/ReactToastify.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Col, Row} from "react-bootstrap";
 import 'react-datepicker/dist/react-datepicker.css';
+import MyNavbar from "../component/Navbar";
+import Modal from 'react-bootstrap/Modal';
+
 
 function JustificationPage() {
   const [justification, setJustification] = useState('');
   const [justificationTopic, setJustificationTopic] = useState('');
+  const [isRateSend, setIsRateSend] = useState(false)
   const [feedback, setFeedback] = useState('');
   const location = useLocation();
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('http://51.20.128.110:5000/user/validate-token', {
@@ -56,7 +60,11 @@ function JustificationPage() {
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
+      .then((response) => {
+          if(response.status===200){
+              setIsRateSend(true)
+          }
+      })
       .catch((error) => {
         console.error('Error:', error);
       });
@@ -66,10 +74,32 @@ function JustificationPage() {
     const onChange=(nextValue)=>{
         setStar(nextValue)
     }
+    const handleClose = () =>{
+        setIsRateSend(false)
+        navigate("/gpt-judgments-front/")
+    }
 
   return (
+      <>
+      <Modal show={isRateSend}
+             backdrop="static"
+             keyboard={false}
+             onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Dziękuję za skorzystanie z aplikacji</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Twoje wygenerowane uzasadnienie oraz jego ocena zostały zapisane do bazy danych.
+            <br/>
+            Zostaniesz przekierowany do strony głównej.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+              Zakończ
+          </Button>
+        </Modal.Footer>
+      </Modal>
     <div className="default">
-        <Navbar/>
+        <MyNavbar/>
         <Card className="justification-card" style={{ width: '60vw' }}>
             <Card.Body>
                 <Card.Title>Wygenerowane uzasadnienie</Card.Title>
@@ -108,6 +138,7 @@ function JustificationPage() {
             pauseOnHover
         />
     </div>
+      </>
   );
 }
 

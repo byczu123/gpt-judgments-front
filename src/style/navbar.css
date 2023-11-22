@@ -7,6 +7,7 @@
 }
 nav{
     display: flex;
+    flex-wrap: wrap;
     background: #0082e6;
     height: 80px;
     width: 100%;
@@ -28,13 +29,12 @@ nav ul li{
     line-height: 80px;
     margin: 0 5px;
 }
-nav ul li .link,.link-active{
-    color: white;
+.link,.link-active{
+    color: black;
     font-size: 17px;
     padding: 7px 13px;
     border-radius: 3px;
     text-decoration: none;
-    text-transform: uppercase;
 }
 .link:hover,.link-active{
     background: #1b9bff;
@@ -64,4 +64,7 @@ nav ul li .link,.link-active{
     .menu.is-active .nav {
         display: block;
     }
+}
+.nav-link-title{
+    text-decoration: none !important;
 }
