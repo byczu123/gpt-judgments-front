@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form } from 'react-bootstrap';
-import {render} from "@testing-library/react";
 
 class BootstrapDate extends React.Component{
 

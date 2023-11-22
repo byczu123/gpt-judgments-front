@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://16.171.225.22:5000/user/token', {
+    fetch('http://51.20.128.110:5000/user/token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ function JustificationPage() {
   const location = useLocation();
 
   useEffect(() => {
-    fetch('http://16.171.225.22:5000/user/validate-token', {
+    fetch('http://51.20.128.110:5000/user/validate-token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ function JustificationPage() {
       rating: star,
       feedback: feedback,
     };
-    fetch('http://16.171.225.22:5000/gpt/rate', {
+    fetch('http://51.20.128.110:5000/gpt/rate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
